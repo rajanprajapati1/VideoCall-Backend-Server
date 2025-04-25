@@ -12,6 +12,10 @@ const io = new Server({
 const app = express();
 app.use(bodyParser.json());
 
+app.get("/test",(req,res)=>{
+  res.status(200).json("hey test")
+})
+
 const emailToSocket = new Map();
 const SocketToemail = new Map();
 
