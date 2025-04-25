@@ -5,7 +5,7 @@ import http from "http";
 
 const io = new Server({
   cors: {
-    origin: "*",
+    origin: "https://spectacular-pixie-6fe9a8.netlify.app",
   },
 });
 
