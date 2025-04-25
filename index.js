@@ -10,6 +10,19 @@ const io = new Server({
 });
 
 const app = express();
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://spectacular-pixie-6fe9a8.netlify.app"); // Update with your allowed origin
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  
+  // Handle preflight requests (OPTIONS)
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+
+  next();
+});
 app.use(bodyParser.json());
 
 app.get("/test",(req,res)=>{
